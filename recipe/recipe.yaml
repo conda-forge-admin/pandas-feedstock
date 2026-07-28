@@ -10,9 +10,11 @@ package:
 source:
   url: https://github.com/pandas-dev/pandas/releases/download/v${{ version }}/pandas-${{ version }}.tar.gz
   sha256: 4b5b1670cf2ac51421a8bc0fbc2c891a92d373904a9e738f7e23ba5ee47be89d
+  patches:
+    - fix-pytest-warnings.patch
 
 build:
-  number: 0
+  number: 1
   skip: match(python, "<3.11")
   script:
     - if: ppc64le
